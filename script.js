@@ -1,62 +1,80 @@
-let doTheThing = function () {
+let DoTheThing = function(){
 
-    //loops have 3 parts : control variable, control boolean expression , control increment/decrement/update
-    // Control variable - controls when the loop executes
-    //control boolean  expression - using the control variable which should at some point evaluate to false
-    //control update - assigning a new value to the control variable INSIDE the loop so that the boolean expression eventually evaluates to false
-
+  /* Loops have three parts: CONTROL VARIABLE; CONTROL BOOLEAN EXPRESSION; CONTROL INCREMENT/DECREMENT/UPDATE
+     CONTROL VARIABLE - controls when the loop executes
+     CONTROL BOOLEAN EXPRESSION - boolean expression using the control variable which should at some point evaluate to false
+     CONTROL UPDATE - assigning a new value to the control variable INSIDE the loop so that the boolean expression eventually evaluates to false
+   */
 
     let restart = "Yes";
-    while (restart === "Yes") {
+    while(restart === "Yes"){
 
-        //Computer pic number
-        let computerNumbers = Math.floor((Math.random() * 10) + 1);
-        alert(computerNumbers);
+        //Computer picks a number
+        let computerNumber = Math.floor((Math.random()*10)+1);
+        //Alert to get player's guess
 
-        let playersGuess = parseInt(prompt("guess number between 1-10"), 10);
-        while (playersGuess !== computerNumbers) {
+        let playersGuess = parseInt(prompt("Guess a number between 1 and 10."), 10);
+
+        while(playersGuess !== computerNumber){
+
+            //Compare guess to number
+            //if higher - Alert too high and then get player's guess - repeat
+            //if lower - Alert too low and then get player's guess - repeat
+
+            if(playersGuess > computerNumber ){
+                playersGuess = parseInt(prompt("Too high, guess again."), 10);
+            }else
+                playersGuess = parseInt(prompt("Too Low, guess again."), 10);
         }
-        if (playersGuess > computerNumbers) {
-            playersGuess = prompt("To high, Guess again");
-        } else
-            playersGuess = prompt("to low,guess again");
+
+        //if equal - Alert You win then ask to restart
+        //if yes - repeat from beginning
+        //if no - set computer on fire and escape
+        alert("YOU GUESSED IT!!!");
+
+        restart = prompt("Would you like to play again? Type 'Yes' or 'No' (case sensitive)");
     }
-        //If higher alert to high and then get players next guess - repeat
-        //if lower alert to low and then get players next guess - repeat
-        //if equal - alert you win then ask to restart
-        // if yes- repeat from beginning
-        //if no - no
-        alert("You guessed it!!");
-        restart = prompt(" Would you like to play again? Type yes or no (case sensitive)");
-    };
+};
 
+let DoTheOtherThing = function(){
 
-let doTheOtherThing = function(){
-    //save program with a do-while loop
+    //SAME PROGRAM WITH A DO-WHILE LOOP
     let restart;
 
     do{
-        let computerNumbers = Math.floor((Math.random() * 10) + 1);
-        do {
-            playersGuess = parseInt(prompt("guess number between 1-10"), 10);
-            if (playersGuess > computerNumbers) {
-                playersGuess = prompt("To high, Guess again");
-            } else
-                playersGuess = prompt("to low,guess again");
+        let computerNumber = Math.floor((Math.random()*10)+1);
+        let playersGuess;
 
-        }while
-        restart = prompt(" Would you like to play again? Type yes or no (case sensitive)");
+        do{
+            playersGuess = parseInt(prompt("Guess a number between 1 and 10."), 10);
 
-    }while(playersGuess !== computerNumbers);
-    alert("You guessed it!!");
-    restart = prompt(" Would you like to play again? Type yes or no (case sensitive)");
+            if(playersGuess > computerNumber ){
+                playersGuess = parseInt(prompt("Too high, guess again."), 10);
+            }else
+                playersGuess = parseInt(prompt("Too Low, guess again."), 10);
+
+        }while(playersGuess !== computerNumber);
+
+        alert("YOU GUESSED IT!!!");
+        restart = prompt("Would you like to play again? Type 'Yes' or 'No' (case sensitive)");
+
     }while(restart === "Yes");
+
 };
 
 
-    //alert to get players guess
-    //compare guess to number
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+© 2020 GitHub, Inc.
